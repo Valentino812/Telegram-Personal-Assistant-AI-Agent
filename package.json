@@ -1,0 +1,22 @@
+{
+  "name": "telegram-personal-assistant",
+  "version": "1.0.0",
+  "description": "Workflow for Telegram Personal Assistant Chatbot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mika Valentino",
+  "license": "ISC",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "axios": "^1.13.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "googleapis": "^171.4.0",
+    "node-cron": "^4.2.1",
+    "puppeteer": "^24.40.0",
+    "rss-parser": "^3.13.0",
+    "yahoo-finance2": "^3.13.2"
+  }
+}

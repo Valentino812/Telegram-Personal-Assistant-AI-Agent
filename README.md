@@ -1,8 +1,6 @@
 # 🤖 AI-Powered Personal Assistant Bot
 
-[![Made with JavaScript](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
-[![Built for Telegram](https://forthebadge.com/images/badges/uses-telegram.svg)](https://forthebadge.com)
-[![Works on My Machine](https://forthebadge.com/images/badges/works-on-my-machine.svg)](https://forthebadge.com)
+[![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
 
 A stateless, cloud-ready Telegram bot engineered to bridge generative AI with daily workflow automation. This application acts as a centralized backend hub for financial tracking, task management, and data synthesis, completely eliminating the need to context-switch between productivity apps.
 
@@ -105,6 +103,6 @@ Once deployed and connected to your Telegram webhook, the bot responds to the fo
 ## 👨‍💻 Author
 
 **Mika Valentino**
-* LinkedIn: [\[Your LinkedIn URL\]](https://www.linkedin.com/in/mika-valentino/)
-* GitHub: [\[Your GitHub URL\]](https://github.com/Valentino812)
+* LinkedIn: [\[LinkedIn URL\]](https://www.linkedin.com/in/mika-valentino/)
+* GitHub: [\[GitHub URL\]](https://github.com/Valentino812)
 

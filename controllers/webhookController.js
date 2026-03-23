@@ -29,9 +29,6 @@ const TUTORIAL_MESSAGE = `*Command Center*
 
 class WebhookController {
     static async handleIncomingMessage(req, res) {
-        // 1. Acknowledge receipt immediately
-        res.sendStatus(200);
-
         const message = req.body.message;
         if (!message || !message.text) return; 
 
@@ -250,6 +247,9 @@ class WebhookController {
         } catch (error) {
             console.error("Error processing webhook:", error);
             await reply("⚠️ Sorry, I encountered a system error processing that command.");
+        } finally {
+            // Returning complete status
+            return res.status(200).send('OK');
         }
     }
 }

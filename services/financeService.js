@@ -1,7 +1,11 @@
 const { google } = require('googleapis');
 
+// JSON String Credentials
+const credentials = JSON.parse(process.env.GOOGLE_SERVICE_CREDENTIALS);
+
+// Google authentication
 const auth = new google.auth.GoogleAuth({
-    keyFile: './config/service-account.json', 
+    credentials, 
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
 });
 
@@ -23,7 +27,7 @@ class FinanceService {
         }
     }
 
-    // --- TRANSACTIONS LOGIC ---
+    // --- TRANSACTIONS ---
 
     static async ensureSheetExists() {
         const exists = await this.checkSheetExists(TRANSACTIONS_SHEET);

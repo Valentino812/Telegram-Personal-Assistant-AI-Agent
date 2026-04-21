@@ -1,4 +1,4 @@
-const fs = require('fs');
+require('dotenv').config();
 const readline = require('readline');
 const { google } = require('googleapis');
 
@@ -8,12 +8,27 @@ const SCOPES = [
     'https://www.googleapis.com/auth/spreadsheets'
 ];
 
-// Load client credentials from a local file (You can get this from the Google Cloud Console OAuth 2.0 Client Secret JSON Download).
-fs.readFile('credentials.json', (err, content) => {
-    if (err) return console.log('Error loading client secret file:', err);
-    // Authorize a client with credentials, then call the Google API.
-    authorize(JSON.parse(content));
-});
+//  Credentials
+const credentials = {
+    installed: {
+        client_id: process.env.GOOGLE_CLIENT_ID,
+        project_id: "personal-assistant-bot-491001",
+        auth_uri: "https://accounts.google.com/o/oauth2/auth",
+        token_uri: "https://oauth2.googleapis.com/token",
+        auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
+        client_secret: process.env.GOOGLE_CLIENT_SECRET,
+        redirect_uris: ["http://localhost"]
+    }
+};
+
+// Check ENV Variables
+if (!credentials.installed.client_id || !credentials.installed.client_secret) {
+    console.error("❌ Error: Missing GOOGLE_CLIENT_ID or GOOGLE_CLIENT_SECRET in your .env file!");
+    process.exit(1);
+}
+
+// Directly authorize using the constructed object 
+authorize(credentials);
 
 function authorize(credentials) {
     const { client_secret, client_id, redirect_uris } = credentials.installed;
@@ -37,7 +52,7 @@ function getNewToken(oAuth2Client) {
         output: process.stdout,
     });
     
-    rl.question('\nEnter the code from that page here: ', (code) => {
+    rl.question('\nEnter the code from that page here (From the URL Parameter): ', (code) => {
         rl.close();
         oAuth2Client.getToken(decodeURIComponent(code), (err, token) => {
             if (err) return console.error('Error retrieving access token', err);
